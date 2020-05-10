@@ -5,12 +5,15 @@
 #ifndef BINARYTREE_BINARTTREE_H
 #define BINARYTREE_BINARTTREE_H
 
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define MAX_SIZE 20
 /*
  * Define a type for the data that will be used
  * */
 typedef struct{
-    int num;
+    char word[MAX_SIZE+1];
 }NodeData;
 /*
  * Define the tree node with

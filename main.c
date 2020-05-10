@@ -6,7 +6,7 @@ void visit(TreeNodePtr);
 void preOrder(TreeNodePtr);
 void postOrder(TreeNodePtr);
 void inOrder(TreeNodePtr);
-TreeNodePtr buildBinarySearchTree(BinaryTree);
+TreeNodePtr buildBinarySearchTree(BinaryTree, int);
 TreeNodePtr findORinsert(BinaryTree tree, NodeData data);
 
 TreeNodePtr newTreeNode(NodeData data);
@@ -27,7 +27,11 @@ int main() {
     TreeNodePtr p;
     stringTree.root = NULL;
     NodeData data;
-    p = buildBinarySearchTree(stringTree);
+    /*
+     * initialize using user input
+    p = buildBinarySearchTree(stringTree,5);
+    stringTree.root = p;
+     */
     /*
      * Test using find or insert function
     strcpy(data.word,"oop");
@@ -48,26 +52,25 @@ int main() {
 
 }
 
-TreeNodePtr buildBinarySearchTree(BinaryTree binaryTree) {
+TreeNodePtr buildBinarySearchTree(BinaryTree binaryTree,int num) {
     /*
      * Read input from the console
-     * return pointer to the added node
+     * return pointer to the root
      * */
-
+    printf("enter %d strings to initialize the tree:\n",num);
     char * inputString[MAX_SIZE+1];
-    TreeNodePtr p = NULL;
-    printf("Enter a string to add or 0 \"zero\" to end: \n");
-
-    while (strcmp(scanf("%s", inputString), "0") != 0){
-        //printf("%s\n",inputString);
+    int count = 0;
+    while(count < num){
+        scanf("%s",inputString);
         NodeData data;
         strcpy(data.word,inputString);
-        if(binaryTree.root = NULL)
-            binaryTree.root = findORinsert(binaryTree,data);
+        if(binaryTree.root == NULL)
+        binaryTree.root = findORinsert(binaryTree,data);
         else
-            p= findORinsert(binaryTree,data);
+            findORinsert(binaryTree,data);
+        count++;
     }
-    inOrder(binaryTree.root);
+
     return binaryTree.root;
 
 }
